@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  body { background:#151515; display:flex; gap:36px; padding:40px; align-items:flex-start; }
+  .phone { width:390px; height:844px; background:#000; border-radius:36px; overflow:hidden; position:relative; border:3px solid #333; flex-shrink:0; }
+  .label { position:absolute; top:-0px; left:0; right:0; text-align:center; color:#888; font-size:13px; }
+  .phone-wrap { display:flex; flex-direction:column; gap:10px; }
+  .phone-title { color:#ffb300; font-size:18px; font-weight:700; text-align:center; }
+
+  /* ---------- WELCOME ---------- */
+  .welcome-art { height:62%; background:url('welcome_art.png') center top/cover; position:relative; }
+  .welcome-art::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, #000 100%); }
+  .welcome-bottom { height:38%; padding:26px 24px; display:flex; flex-direction:column; }
+  .w-title { color:#fff; font-size:26px; font-weight:800; letter-spacing:1px; }
+  .w-sub { color:#b0b0b0; font-size:15px; margin-top:8px; line-height:1.45; }
+  .btn { border-radius:14px; padding:16px; font-size:16px; font-weight:800; text-align:center; letter-spacing:1.5px; }
+  .btn-fire { background:linear-gradient(90deg,#ff6a00,#ffb300); color:#000; box-shadow:0 4px 24px rgba(255,140,0,.35); }
+  .btn-outline { border:2px solid #ffb300; color:#ffb300; margin-top:14px; }
+  .w-terms { color:#666; font-size:11px; text-align:center; margin-top:auto; }
+  .w-terms b { color:#ffb300; font-weight:600; }
+
+  /* ---------- AUTH COMMON ---------- */
+  .auth { padding:24px; height:100%; display:flex; flex-direction:column; background: radial-gradient(120% 60% at 50% 0%, #1d1002 0%, #000 55%); }
+  .back { color:#fff; font-size:22px; }
+  .auth-logo { width:130px; align-self:center; margin:6px 0 2px; }
+  .auth-h { color:#fff; font-size:24px; font-weight:800; text-align:center; }
+  .auth-s { color:#9e9e9e; font-size:13.5px; text-align:center; margin:6px 0 22px; line-height:1.4; }
+  .field { background:#141414; border:1.5px solid #2a2a2a; border-radius:14px; padding:15px 16px; display:flex; align-items:center; gap:12px; margin-bottom:13px; }
+  .field.focus { border-color:#ffb300; box-shadow:0 0 0 3px rgba(255,179,0,.12); }
+  .field .ic { font-size:17px; opacity:.85 }
+  .field span.ph { color:#777; font-size:15px; }
+  .field span.val { color:#fff; font-size:15px; }
+  .field .eye { margin-left:auto; opacity:.5; font-size:16px; }
+  .link-right { color:#ffb300; font-size:13.5px; text-align:right; font-weight:600; margin:-2px 2px 18px; }
+  .switch-line { text-align:center; color:#9e9e9e; font-size:14px; margin-top:auto; padding-bottom:8px; }
+  .switch-line b { color:#ffb300; }
+  .divider { display:flex; align-items:center; gap:12px; color:#555; font-size:12px; margin:16px 0; }
+  .divider::before,.divider::after { content:''; flex:1; height:1px; background:#222; }
+
+  /* ---------- OTP ---------- */
+  .otp-row { display:flex; gap:10px; justify-content:center; margin:8px 0 6px; }
+  .otp-box { width:48px; height:56px; border-radius:12px; background:#141414; border:1.5px solid #2a2a2a; color:#fff; font-size:22px; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  .otp-box.fill { border-color:#ffb300; }
+  .resend { text-align:center; color:#9e9e9e; font-size:13px; margin:14px 0 22px; }
+  .resend b { color:#ffb300; }
+  .user-chip { background:#141414; border:1.5px solid #2a2a2a; border-radius:16px; padding:14px 18px; display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .user-chip .av { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,#ff6a00,#ffb300); display:flex; align-items:center; justify-content:center; font-weight:800; color:#000; font-size:18px; }
+  .user-chip .un { color:#fff; font-weight:700; font-size:16px; }
+  .user-chip .em { color:#888; font-size:12.5px; margin-top:2px; }
+  .user-chip .ok { margin-left:auto; color:#4caf50; font-size:20px; }
+  .step-dots { display:flex; gap:8px; justify-content:center; margin-bottom:18px; }
+  .dot { width:26px; height:5px; border-radius:3px; background:#2a2a2a; }
+  .dot.on { background:linear-gradient(90deg,#ff6a00,#ffb300); }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. WELCOME ============ -->
+<div class="phone-wrap">
+  <div class="phone-title">1 · Welcome Screen</div>
+  <div class="phone">
+    <div class="welcome-art"></div>
+    <div class="welcome-bottom">
+      <div class="w-title">WELCOME TO THE ARENA</div>
+      <div class="w-sub">Join Free Fire tournaments, dominate the battlefield &amp; win real cash rewards.</div>
+      <div style="height:22px"></div>
+      <div class="btn btn-fire">REGISTER</div>
+      <div class="btn btn-outline">LOGIN</div>
+      <div class="w-terms">By continuing you agree to our <b>Terms</b> &amp; <b>Privacy Policy</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 2. LOGIN ============ -->
+<div class="phone-wrap">
+  <div class="phone-title">2 · Login</div>
+  <div class="phone">
+    <div class="auth">
+      <div class="back">←</div>
+      <img class="auth-logo" src="logo.png">
+      <div class="auth-h">Welcome Back, Champ!</div>
+      <div class="auth-s">Login to continue your tournament journey</div>
+      <div class="field focus"><span class="ic">👤</span><span class="val">adarsh02</span></div>
+      <div class="field"><span class="ic">🔒</span><span class="ph">Password</span><span class="eye">👁</span></div>
+      <div class="link-right">Forgot Password?</div>
+      <div class="btn btn-fire">LOGIN</div>
+      <div class="switch-line">Don't have an account? <b>REGISTER</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 3. REGISTER ============ -->
+<div class="phone-wrap">
+  <div class="phone-title">3 · Register</div>
+  <div class="phone">
+    <div class="auth">
+      <div class="back">←</div>
+      <img class="auth-logo" src="logo.png" style="width:100px">
+      <div class="auth-h">Create Account</div>
+      <div class="auth-s">Join the arena in less than a minute</div>
+      <div style="display:flex; gap:12px">
+        <div class="field" style="flex:1"><span class="ph">First Name</span></div>
+        <div class="field" style="flex:1"><span class="ph">Last Name</span></div>
+      </div>
+      <div class="field"><span class="ic">👤</span><span class="ph">Username</span></div>
+      <div class="field"><span class="ic">✉️</span><span class="ph">Email Address</span></div>
+      <div class="field"><span class="val" style="color:#9e9e9e">+91</span><span class="ph">Mobile Number</span></div>
+      <div class="field"><span class="ic">🔒</span><span class="ph">Password</span><span class="eye">👁</span></div>
+      <div class="field"><span class="ic">🎁</span><span class="ph">Referral Code (Optional)</span></div>
+      <div style="height:6px"></div>
+      <div class="btn btn-fire">REGISTER</div>
+      <div class="switch-line">Already a user? <b>LOGIN</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 4. FORGOT - EMAIL ============ -->
+<div class="phone-wrap">
+  <div class="phone-title">4 · Forgot Password — Step 1</div>
+  <div class="phone">
+    <div class="auth">
+      <div class="back">←</div>
+      <img class="auth-logo" src="logo.png">
+      <div class="auth-h">Forgot Password?</div>
+      <div class="auth-s">Apna registered Gmail daalo,<br>hum 6-digit OTP bhejenge</div>
+      <div class="step-dots"><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="field focus"><span class="ic">✉️</span><span class="val">at7832079@gmail.com</span></div>
+      <div style="height:10px"></div>
+      <div class="btn btn-fire">SEND OTP</div>
+      <div class="switch-line">Remember password? <b>LOGIN</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 5. FORGOT - OTP ============ -->
+<div class="phone-wrap">
+  <div class="phone-title">5 · Forgot Password — Step 2 (OTP)</div>
+  <div class="phone">
+    <div class="auth">
+      <div class="back">←</div>
+      <img class="auth-logo" src="logo.png">
+      <div class="auth-h">Verify OTP</div>
+      <div class="auth-s">OTP bheja gaya hai<br><b style="color:#fff">at7832079@gmail.com</b> par</div>
+      <div class="step-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+      <div class="otp-row">
+        <div class="otp-box fill">4</div><div class="otp-box fill">7</div><div class="otp-box fill">2</div>
+        <div class="otp-box fill">9</div><div class="otp-box">·</div><div class="otp-box">·</div>
+      </div>
+      <div class="resend">OTP nahi aaya? <b>Resend in 00:42</b></div>
+      <div class="btn btn-fire">CONTINUE</div>
+      <div class="switch-line">Wrong email? <b>GO BACK</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 6. FORGOT - RESET ============ -->
+<div class="phone-wrap">
+  <div class="phone-title">6 · Forgot Password — Step 3 (Reset)</div>
+  <div class="phone">
+    <div class="auth">
+      <div class="back">←</div>
+      <img class="auth-logo" src="logo.png">
+      <div class="auth-h">Create New Password</div>
+      <div class="auth-s">OTP verified! Ab naya password banao</div>
+      <div class="step-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+      <div class="user-chip">
+        <div class="av">A</div>
+        <div><div class="un">adarsh02</div><div class="em">at7832079@gmail.com</div></div>
+        <div class="ok">✔</div>
+      </div>
+      <div class="field"><span class="ic">🔒</span><span class="ph">New Password</span><span class="eye">👁</span></div>
+      <div class="field"><span class="ic">🔒</span><span class="ph">Confirm New Password</span><span class="eye">👁</span></div>
+      <div style="height:10px"></div>
+      <div class="btn btn-fire">RESET PASSWORD</div>
+      <div class="switch-line">→ Reset ke baad seedha <b>LOGIN</b> screen</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
